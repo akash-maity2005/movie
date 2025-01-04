@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIE WORLD - Movie Gallery</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #001f3f; /* Dark blue background */
+            color: white; /* White text for better contrast */
+            padding-top: 100px; /* To prevent content from being hidden under the fixed header */
+        }
+
+        header {
+            background-color: #003366;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Keeps the header on top of other elements */
+        }
+
+        /* Adjusted Title Font and Logo Size */
+        header h1 {
+            font-size: 2rem; /* Smaller font size for the title */
+            font-weight: bold;
+            position: relative;
+            animation: glow 2s infinite alternate; /* Glowing effect */
+        }
+
+        header .logo {
+            width: 50px; /* Smaller width for the logo */
+            height: 50px; /* Smaller height for the logo */
+            animation: spin 2s infinite linear; /* Logo spin animation */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 0 0 15px #00c8ff;
+            }
+            100% {
+                text-shadow: 0 0 10px #00e1ff, 0 0 20px #00e1ff, 0 0 30px #00e1ff;
+            }
+        }
+
+        /* Text below the title bar */
+        .sub-heading {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #00e1ff;
+            text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 0 0 15px #00c8ff;
+        }
+
+        #movie_section {
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 1.2rem;
+        }
+
+        #movie_name {
+            padding: 10px;
+            font-size: 1rem;
+            width: 300px;
+            margin: 10px;
+        }
+
+        #update_btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #update_btn:hover {
+            background-color: #005fa3;
+        }
+
+        iframe {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #0077cc;
+            border-radius: 10px;
+            width: 80%;
+            height: 500px;
+        }
+
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+
+        main h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Optimized User Experience Section */
+        .optimized-experience {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .optimized-experience div {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .optimized-experience h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .optimized-experience p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Style */
+        footer {
+            text-align: center;
+            font-family: 'Cursive', 'Italy', sans-serif; /* Italian-like font style */
+            font-size: 0.7rem; /* Smaller font size */
+            color: white;
+            margin-top: 40px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Animated Logo (Blue Movie Reel) -->
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#00c8ff">
+            <circle cx="32" cy="32" r="30" stroke="#00c8ff" stroke-width="4" fill="none"/>
+            <circle cx="32" cy="32" r="8" fill="#00c8ff"/>
+            <circle cx="32" cy="12" r="4" fill="#00c8ff"/>
+            <circle cx="32" cy="52" r="4" fill="#00c8ff"/>
+            <circle cx="12" cy="32" r="4" fill="#00c8ff"/>
+            <circle cx="52" cy="32" r="4" fill="#00c8ff"/>
+        </svg>
+
+        <!-- Animated Title -->
+        <h1>MOVIE WORLD</h1>
+    </header>
+
+    <!-- Sub-heading -->
+    <div class="sub-heading">WATCH FREE VIDEO WITH MOVIE WORLD API</div>
+
+    <section id="movie_section">
+        <label for="movie_name">Enter Movie Code:</label>
+        <input id="movie_name" type="text" placeholder="Enter IMDb code; Example:Itt13186482">
+        <button id="update_btn">Load Movie</button>
+    </section>
+
+    <iframe id="movie_iframe" src="https://vidsrc.xyz/embed/movie?imdb=tt13186482" frameborder="1" referrerpolicy="origin" allowfullscreen></iframe>
+
+    <!-- Optimized User Experience Section -->
+    <div class="optimized-experience">
+        <div>
+            <h3>Auto Update</h3>
+            <p>Links are automatically updated with new or better quality as soon as they become available online.</p>
+        </div>
+        <div>
+            <h3>Responsive</h3>
+            <p>The player is fully responsive and works seamlessly on desktops, tablets, and mobile devices.</p>
+        </div>
+        <div>
+            <h3>High Quality</h3>
+            <p>We ensure that the links provided are in the latest available quality, most often 1080p.</p>
+        </div>
+        <div>
+            <h3>Fast Streaming Servers</h3>
+            <p>The player uses the fastest streaming servers, giving users the option to choose for better performance.</p>
+        </div>
+    </div>
+
+    <main>
+        <h2>Product API Reference</h2>
+        <div id="container">Explore the latest movies with their IMDb codes.</div>
+    </main>
+
+    <!-- Footer with the signature -->
+    <footer>
+        Made by Akash Maity
+    </footer>
+
+    <script>
+        // Get references to elements
+        const movieInput = document.getElementById('movie_name');
+        const updateButton = document.getElementById('update_btn');
+        const iframe = document.getElementById('movie_iframe');
+
+        // Update movie iframe
+        updateButton.addEventListener('click', () => {
+            const movieCode = movieInput.value.trim(); // Get and trim the input value
+            if (movieCode) {
+                iframe.src = `https://vidsrc.xyz/embed/movie?imdb=${movieCode}`;
+            } else {
+                alert('Please enter a valid movie code.');
+            }
+        });
+    </script>
+</body>
+</html>
